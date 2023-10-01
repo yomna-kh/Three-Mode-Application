@@ -1,0 +1,385 @@
+###############################################################################
+#
+# IAR ELF Linker V9.30.1.335/W64 for ARM                  28/Dec/2022  17:05:29
+# Copyright 2007-2022 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Exe\Project.out
+#    Map file     =
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\List\Project.map
+#    Command line =
+#        -f C:\Users\DELL\Desktop\Embedded_Project\Debug\Exe\Project.out.rsp
+#        (C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\calculator.o
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\delay.o
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\GPIO.o
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\keypad.o
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\LCD_Driver.o
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\main.o
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\startup_ewarm.o
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\Stopwatch.o
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\timer.o
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\TIMER_PROJECT.o
+#        --no_out_extension -o
+#        C:\Users\DELL\Desktop\Embedded_Project\Debug\Exe\Project.out
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map C:\Users\DELL\Desktop\Embedded_Project\Debug\List\Project.map
+#        --config "D:\IAR EW for Arm
+#        9.30.1\arm/config/linker/TexasInstruments/TM4C123GH6.icf"
+#        --semihosting --entry __iar_program_start --vfe --text_out locale
+#        --cpu=Cortex-M4 --fpu=VFPv4_sp)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+do not initialize { rw section .noinit };
+initialize by copy { rw };
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                       0x26c
+  .intvec            const            0x0   0x26c  startup_ewarm.o [1]
+                                  - 0x26c   0x26c
+
+"P1":                                      0x1bdc
+  .text              ro code        0x26c   0xa80  GPIO.o [1]
+  .text              ro code        0xcec   0x400  calculator.o [1]
+  .text              ro code       0x10ec   0x1f4  LCD_Driver.o [1]
+  .text              ro code       0x12e0    0x30  delay.o [1]
+  .text              ro code       0x1310    0xa8  keypad.o [1]
+  .text              ro code       0x13b8    0x56  ABImemcpy_unaligned.o [4]
+  .text              ro code       0x140e    0x2a  copy_init3.o [4]
+  .text              ro code       0x1438   0x3e8  timer.o [1]
+  .text              ro code       0x1820   0x23c  TIMER_PROJECT.o [1]
+  .text              ro code       0x1a5c   0x154  Stopwatch.o [1]
+  .text              ro code       0x1bb0    0xdc  main.o [1]
+  .text              ro code       0x1c8c    0x38  zero_init3.o [4]
+  Initializer bytes  const         0x1cc4    0x30  <for P2-1>
+  .text              ro code       0x1cf4    0x28  data_init.o [4]
+  .text              ro code       0x1d1c    0x22  fpinit_M.o [3]
+  .iar.init_table    const         0x1d40    0x24  - Linker created -
+  .text              ro code       0x1d64     0x2  vectortrap_M.o [4]
+  .text              ro code       0x1d68    0x1e  startup_ewarm.o [1]
+  .text              ro code       0x1d88    0x1c  cstartup_M.o [4]
+  .text              ro code       0x1da4    0x1e  cmain.o [4]
+  .text              ro code       0x1dc2     0x4  low_level_init.o [2]
+  .text              ro code       0x1dc6     0x4  exit.o [2]
+  .text              ro code       0x1dcc     0xa  cexit.o [4]
+  .text              ro code       0x1dd8    0x14  exit.o [5]
+  .rodata            const         0x1dec    0x18  calculator.o [1]
+  .rodata            const         0x1e04    0x10  calculator.o [1]
+  .rodata            const         0x1e14    0x10  Stopwatch.o [1]
+  .rodata            const         0x1e24     0xc  TIMER_PROJECT.o [1]
+  .rodata            const         0x1e30     0x8  calculator.o [1]
+  .rodata            const         0x1e38     0x8  Stopwatch.o [1]
+  .rodata            const         0x1e40     0x8  TIMER_PROJECT.o [1]
+  .rodata            const         0x1e48     0x0  zero_init3.o [4]
+  .rodata            const         0x1e48     0x0  copy_init3.o [4]
+                                 - 0x1e48  0x1bdc
+
+"P2", part 1 of 3:                           0x30
+  P2-1                        0x2000'0000    0x30  <Init block>
+    .data            inited   0x2000'0000    0x10  keypad.o [1]
+    .data            inited   0x2000'0010     0x8  main.o [1]
+    .data            inited   0x2000'0018     0x8  main.o [1]
+    .data            inited   0x2000'0020     0xc  main.o [1]
+    .data            inited   0x2000'002c     0x1  calculator.o [1]
+    .data            inited   0x2000'002d     0x1  calculator.o [1]
+    .data            inited   0x2000'002e     0x1  calculator.o [1]
+    .data            inited   0x2000'002f     0x1  calculator.o [1]
+                            - 0x2000'0030    0x30
+
+"P2", part 2 of 3:                           0x84
+  .bss               zero     0x2000'0030    0x28  calculator.o [1]
+  .bss               zero     0x2000'0058     0x4  calculator.o [1]
+  .bss               zero     0x2000'005c     0x4  calculator.o [1]
+  .bss               zero     0x2000'0060     0x4  calculator.o [1]
+  .bss               zero     0x2000'0064     0x4  calculator.o [1]
+  .bss               zero     0x2000'0068     0x4  calculator.o [1]
+  .bss               zero     0x2000'006c     0x4  GPIO.o [1]
+  .bss               zero     0x2000'0070     0x4  GPIO.o [1]
+  .bss               zero     0x2000'0074     0x4  GPIO.o [1]
+  .bss               zero     0x2000'0078     0x4  GPIO.o [1]
+  .bss               zero     0x2000'007c     0x4  GPIO.o [1]
+  .bss               zero     0x2000'0080     0x4  GPIO.o [1]
+  .bss               zero     0x2000'0084     0x4  Stopwatch.o [1]
+  .bss               zero     0x2000'0088     0x4  Stopwatch.o [1]
+  .bss               zero     0x2000'008c     0x4  timer.o [1]
+  .bss               zero     0x2000'0090     0x4  timer.o [1]
+  .bss               zero     0x2000'0094     0x4  timer.o [1]
+  .bss               zero     0x2000'0098     0x4  timer.o [1]
+  .bss               zero     0x2000'009c     0x4  timer.o [1]
+  .bss               zero     0x2000'00a0     0x4  timer.o [1]
+  .bss               zero     0x2000'00a4     0x4  TIMER_PROJECT.o [1]
+  .bss               zero     0x2000'00a8     0x4  TIMER_PROJECT.o [1]
+  .bss               zero     0x2000'00ac     0x1  calculator.o [1]
+  .bss               zero     0x2000'00ad     0x1  main.o [1]
+  .bss               zero     0x2000'00ae     0x1  main.o [1]
+  .bss               zero     0x2000'00af     0x1  Stopwatch.o [1]
+  .bss               zero     0x2000'00b0     0x1  TIMER_PROJECT.o [1]
+                            - 0x2000'00b1    0x81
+
+"P2", part 3 of 3:                          0x200
+  .noinit            uninit   0x2000'00b4   0x200  startup_ewarm.o [1]
+                            - 0x2000'02b4   0x200
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+       0x1e48     0x3'ffff  0x3'e1b8
+  0x2000'02b4  0x2000'7fff    0x7d4c
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x81:
+          0x2000'0030  0x81
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x30:
+               0x1cc4  0x30
+    1 destination range, total size 0x30:
+          0x2000'0000  0x30
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+command line/config:
+    ------------------------------------------------
+    Total:
+
+C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj: [1]
+    GPIO.o                   2'688                24
+    LCD_Driver.o               500
+    Stopwatch.o                340       24        9
+    TIMER_PROJECT.o            572       20        9
+    calculator.o             1'024       52       65
+    delay.o                     48
+    keypad.o                   168       16       16
+    main.o                     220       28       30
+    startup_ewarm.o             30      620      512
+    timer.o                  1'000                24
+    ------------------------------------------------
+    Total:                   6'590      760      689
+
+dl7M_tln.a: [2]
+    exit.o                       4
+    low_level_init.o             4
+    ------------------------------------------------
+    Total:                       8
+
+m7M_tls.a: [3]
+    fpinit_M.o                  34
+    ------------------------------------------------
+    Total:                      34
+
+rt7M_tl.a: [4]
+    ABImemcpy_unaligned.o       86
+    cexit.o                     10
+    cmain.o                     30
+    copy_init3.o                42
+    cstartup_M.o                28
+    data_init.o                 40
+    vectortrap_M.o               2
+    zero_init3.o                56
+    ------------------------------------------------
+    Total:                     294
+
+shb_l.a: [5]
+    exit.o                      20
+    ------------------------------------------------
+    Total:                      20
+
+    Gaps                         8        2
+    Linker created                       36
+----------------------------------------------------
+    Grand Total:             6'954      798      689
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base        0x1d40          --   Gb  - Linker created -
+.iar.init_table$$Limit       0x1d64          --   Gb  - Linker created -
+?main                        0x1da5         Code  Gb  cmain.o [4]
+BusFault_Handler             0x1d65         Code  Wk  vectortrap_M.o [4]
+Buzzer_Init                  0x19bd   0x14  Code  Gb  TIMER_PROJECT.o [1]
+Buzzer_OFF                   0x19df    0xe  Code  Gb  TIMER_PROJECT.o [1]
+Buzzer_ON                    0x19d1    0xe  Code  Gb  TIMER_PROJECT.o [1]
+Calc_init                     0xced   0x2e  Code  Gb  calculator.o [1]
+Calculate                     0xd1b  0x1fe  Code  Gb  calculator.o [1]
+DebugMon_Handler             0x1d65         Code  Wk  vectortrap_M.o [4]
+FaultISR                     0x1d83    0x2  Code  Lc  startup_ewarm.o [1]
+GPIO_InterruptEnable          0x781  0x408  Code  Gb  GPIO.o [1]
+GPIO_portINIT                 0x321   0xaa  Code  Gb  GPIO.o [1]
+GPIO_portPUR                  0x44f   0x54  Code  Gb  GPIO.o [1]
+GPIO_portsSetup              0x1bf7   0x5c  Code  Gb  main.o [1]
+GPIO_readPort                 0x601   0x58  Code  Gb  GPIO.o [1]
+GPIO_setCallBack              0xb95   0x3c  Code  Gb  GPIO.o [1]
+GPIO_setPinDirection          0x4a3  0x15e  Code  Gb  GPIO.o [1]
+GPIO_setPortDirection         0x3cb   0x84  Code  Gb  GPIO.o [1]
+GPIO_writePin                 0x659  0x120  Code  Gb  GPIO.o [1]
+G_Call_Back_Ptr_PORTA   0x2000'006c    0x4  Data  Lc  GPIO.o [1]
+G_Call_Back_Ptr_PORTB   0x2000'0070    0x4  Data  Lc  GPIO.o [1]
+G_Call_Back_Ptr_PORTC   0x2000'0074    0x4  Data  Lc  GPIO.o [1]
+G_Call_Back_Ptr_PORTD   0x2000'0078    0x4  Data  Lc  GPIO.o [1]
+G_Call_Back_Ptr_PORTE   0x2000'007c    0x4  Data  Lc  GPIO.o [1]
+G_Call_Back_Ptr_PORTF   0x2000'0080    0x4  Data  Lc  GPIO.o [1]
+G_Call_Back_ptr_0       0x2000'008c    0x4  Data  Lc  timer.o [1]
+G_Call_Back_ptr_1       0x2000'0090    0x4  Data  Lc  timer.o [1]
+G_Call_Back_ptr_2       0x2000'0094    0x4  Data  Lc  timer.o [1]
+G_Call_Back_ptr_3       0x2000'0098    0x4  Data  Lc  timer.o [1]
+G_Call_Back_ptr_4       0x2000'009c    0x4  Data  Lc  timer.o [1]
+G_Call_Back_ptr_5       0x2000'00a0    0x4  Data  Lc  timer.o [1]
+HardFault_Handler            0x1d65         Code  Wk  vectortrap_M.o [4]
+IntDefaultHandler            0x1d85    0x2  Code  Lc  startup_ewarm.o [1]
+KeyPad_Init                  0x1311   0x34  Code  Gb  keypad.o [1]
+KeyPad_Read                  0x1345   0x5e  Code  Gb  keypad.o [1]
+LCD_Cmd                      0x1125   0x2e  Code  Gb  LCD_Driver.o [1]
+LCD_Cursor                   0x10ed   0x38  Code  Gb  LCD_Driver.o [1]
+LCD_Write_Char               0x118b   0x22  Code  Gb  LCD_Driver.o [1]
+LCD_Write_Nibble             0x1153   0x38  Code  Gb  LCD_Driver.o [1]
+LCD_init                     0x11ad   0x40  Code  Gb  LCD_Driver.o [1]
+LCD_printFloat               0x126f   0x72  Code  Gb  LCD_Driver.o [1]
+LCD_printInteger             0x121d   0x52  Code  Gb  LCD_Driver.o [1]
+LCD_printString              0x11fd   0x20  Code  Gb  LCD_Driver.o [1]
+MemManage_Handler            0x1d65         Code  Wk  vectortrap_M.o [4]
+NMI_Handler                  0x1d65         Code  Wk  vectortrap_M.o [4]
+NmiSR                        0x1d81    0x2  Code  Lc  startup_ewarm.o [1]
+PORTAIntHandler               0x26d   0x1e  Code  Gb  GPIO.o [1]
+PORTBIntHandler               0x28b   0x1e  Code  Gb  GPIO.o [1]
+PORTCIntHandler               0x2a9   0x1e  Code  Gb  GPIO.o [1]
+PORTDIntHandler               0x2c7   0x1e  Code  Gb  GPIO.o [1]
+PORTEIntHandler               0x2e5   0x1e  Code  Gb  GPIO.o [1]
+PORTFIntHandler               0x303   0x1e  Code  Gb  GPIO.o [1]
+PendSV_Handler               0x1d65         Code  Wk  vectortrap_M.o [4]
+Region$$Table$$Base          0x1d40          --   Gb  - Linker created -
+Region$$Table$$Limit         0x1d64          --   Gb  - Linker created -
+ResetISR                     0x1d69   0x12  Code  Gb  startup_ewarm.o [1]
+SVC_Handler                  0x1d65         Code  Wk  vectortrap_M.o [4]
+StopWatch                    0x1a5d   0xca  Code  Gb  Stopwatch.o [1]
+Stopwatch_Minutes       0x2000'0084    0x4  Data  Gb  Stopwatch.o [1]
+Stopwatch_ON            0x2000'00af    0x1  Data  Gb  Stopwatch.o [1]
+Stopwatch_Seconds       0x2000'0088    0x4  Data  Gb  Stopwatch.o [1]
+SysTick_Handler              0x1d65         Code  Wk  vectortrap_M.o [4]
+Timer0AIntHandler            0x1439   0x1a  Code  Gb  timer.o [1]
+Timer1AIntHandler            0x1453   0x1a  Code  Gb  timer.o [1]
+Timer2AIntHandler            0x146d   0x1a  Code  Gb  timer.o [1]
+Timer3AIntHandler            0x1487   0x1a  Code  Gb  timer.o [1]
+Timer4AIntHandler            0x14a1   0x1a  Code  Gb  timer.o [1]
+Timer5AIntHandler            0x14bb   0x1e  Code  Gb  timer.o [1]
+TimerMode                    0x1821  0x19c  Code  Gb  TIMER_PROJECT.o [1]
+Timer_0                 0x2000'0010    0x8  Data  Gb  main.o [1]
+Timer_1                 0x2000'0018    0x8  Data  Gb  main.o [1]
+Timer_DENAB                  0x1709   0x48  Code  Gb  timer.o [1]
+Timer_ENAB                   0x16c1   0x48  Code  Gb  timer.o [1]
+Timer_ON                0x2000'00b0    0x1  Data  Gb  TIMER_PROJECT.o [1]
+Timer_init                   0x14d9  0x1ac  Code  Gb  timer.o [1]
+Timer_setCallBack            0x1685   0x3c  Code  Gb  timer.o [1]
+UsageFault_Handler           0x1d65         Code  Wk  vectortrap_M.o [4]
+__cmain                      0x1da5         Code  Gb  cmain.o [4]
+__exit                       0x1dd9   0x14  Code  Gb  exit.o [5]
+__iar_copy_init3             0x140f   0x2a  Code  Gb  copy_init3.o [4]
+__iar_data_init3             0x1cf5   0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp               0x1d1d         Code  Gb  fpinit_M.o [3]
+__iar_program_start          0x1d89         Code  Gb  cstartup_M.o [4]
+__iar_unaligned_memcpy4
+                             0x13b9         Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_unaligned_memcpy8
+                             0x13b9         Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_zero_init3             0x1c8d   0x38  Code  Gb  zero_init3.o [4]
+__low_level_init             0x1dc3    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0  0x26c  Data  Gb  startup_ewarm.o [1]
+_call_main                   0x1db1         Code  Gb  cmain.o [4]
+_exit                        0x1dcd         Code  Gb  cexit.o [4]
+add                           0xf59   0x1c  Code  Gb  calculator.o [1]
+addition                0x2000'002c    0x1  Data  Gb  calculator.o [1]
+arr                     0x2000'0030   0x28  Data  Gb  calculator.o [1]
+call_back_Timer              0x19ed   0x50  Code  Gb  TIMER_PROJECT.o [1]
+call_back_stopwatch          0x1b27   0x1c  Code  Gb  Stopwatch.o [1]
+clear_data                    0xff1   0x4c  Code  Gb  calculator.o [1]
+counter                 0x2000'00ae    0x1  Data  Gb  main.o [1]
+current                 0x2000'00ad    0x1  Data  Gb  main.o [1]
+delay_ms                     0x12e1   0x1a  Code  Gb  delay.o [1]
+delay_us                     0x12fb   0x16  Code  Gb  delay.o [1]
+divide                        0xfad   0x44  Code  Gb  calculator.o [1]
+division                0x2000'002f    0x1  Data  Gb  calculator.o [1]
+end_calc                      0xf19   0x40  Code  Gb  calculator.o [1]
+exit                         0x1dc7    0x4  Code  Gb  exit.o [2]
+fun_ptr                 0x2000'0020    0xc  Data  Gb  main.o [1]
+index                   0x2000'0058    0x4  Data  Gb  calculator.o [1]
+intkey                  0x2000'0068    0x4  Data  Gb  calculator.o [1]
+key                     0x2000'00ac    0x1  Data  Gb  calculator.o [1]
+keypad                  0x2000'0000   0x10  Data  Gb  keypad.o [1]
+main                         0x1bb1   0x46  Code  Gb  main.o [1]
+minutes_total           0x2000'00a4    0x4  Data  Gb  TIMER_PROJECT.o [1]
+mult                          0xf91   0x1c  Code  Gb  calculator.o [1]
+multiply                0x2000'002e    0x1  Data  Gb  calculator.o [1]
+num1                    0x2000'0060    0x4  Data  Gb  calculator.o [1]
+num2                    0x2000'0064    0x4  Data  Gb  calculator.o [1]
+numfinalize                  0x1053   0x5a  Code  Gb  calculator.o [1]
+pause_pushbutton             0x1b43   0x12  Code  Gb  Stopwatch.o [1]
+pui32Stack              0x2000'00b4  0x200  Data  Lc  startup_ewarm.o [1]
+reset_pushbutton             0x1b6d   0x24  Code  Gb  Stopwatch.o [1]
+result                  0x2000'005c    0x4  Data  Gb  calculator.o [1]
+seconds_total           0x2000'00a8    0x4  Data  Gb  TIMER_PROJECT.o [1]
+start_pushbutton             0x1b55   0x18  Code  Gb  Stopwatch.o [1]
+store                        0x103d   0x16  Code  Gb  calculator.o [1]
+sub                           0xf75   0x1c  Code  Gb  calculator.o [1]
+subtract                0x2000'002d    0x1  Data  Gb  calculator.o [1]
+switchmode                   0x1c55   0x20  Code  Gb  main.o [1]
+
+
+[1] = C:\Users\DELL\Desktop\Embedded_Project\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  6'954 bytes of readonly  code memory
+    798 bytes of readonly  data memory
+    689 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

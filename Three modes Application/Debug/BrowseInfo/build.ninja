@@ -1,0 +1,143 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "D$:\IAR$ EW$ for$ Arm$ 9.30.1\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"D$:\IAR$ EW$ for$ Arm$ 9.30.1\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "D$:\IAR$ EW$ for$ Arm$ 9.30.1\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"D$:\IAR$ EW$ for$ Arm$ 9.30.1\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = "D$:\IAR$ EW$ for$ Arm$ 9.30.1\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"D$:\IAR$ EW$ for$ Arm$ 9.30.1\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = "D$:\IAR$ EW$ for$ Arm$ 9.30.1\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"D$:\IAR$ EW$ for$ Arm$ 9.30.1\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\DELL\Desktop\Embedded_Project\calculator.c -xcl_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.xcl -macro_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.tmp -icc_path "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\calculator.c -o C$:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.tmp
+  rspfile_name = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.xcl.rsp
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\DELL\Desktop\Embedded_Project\delay.c -xcl_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.xcl -macro_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.tmp -icc_path "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\delay.c -o C$:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.tmp
+  rspfile_name = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.xcl.rsp
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\DELL\Desktop\Embedded_Project\GPIO.c -xcl_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.xcl -macro_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.tmp -icc_path "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\GPIO.c -o C$:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.tmp
+  rspfile_name = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.xcl.rsp
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\DELL\Desktop\Embedded_Project\keypad.c -xcl_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.xcl -macro_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.tmp -icc_path "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\keypad.c -o C$:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.tmp
+  rspfile_name = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.xcl.rsp
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\DELL\Desktop\Embedded_Project\LCD_Driver.c -xcl_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.xcl -macro_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.tmp -icc_path "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\LCD_Driver.c -o C$:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.tmp
+  rspfile_name = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.xcl.rsp
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\DELL\Desktop\Embedded_Project\main.c -xcl_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.xcl -macro_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.tmp -icc_path "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\main.c -o C$:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.tmp
+  rspfile_name = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.xcl.rsp
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\DELL\Desktop\Embedded_Project\startup_ewarm.c -xcl_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.xcl -macro_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.tmp -icc_path "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\startup_ewarm.c -o C$:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.tmp
+  rspfile_name = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.xcl.rsp
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\DELL\Desktop\Embedded_Project\Stopwatch.c -xcl_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.xcl -macro_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.tmp -icc_path "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\Stopwatch.c -o C$:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.tmp
+  rspfile_name = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.xcl.rsp
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\DELL\Desktop\Embedded_Project\timer.c -xcl_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.xcl -macro_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.tmp -icc_path "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\timer.c -o C$:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.tmp
+  rspfile_name = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.xcl.rsp
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\DELL\Desktop\Embedded_Project\TIMER_PROJECT.c -xcl_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.xcl -macro_file C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.tmp -icc_path "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\TIMER_PROJECT.c -o C$:\Users\DELL\Desktop\Embedded_Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "D$:\IAR$ EW$ for$ Arm$ 9.30.1\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.tmp
+  rspfile_name = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.xcl.rsp
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.pbi : INDEXER C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.xcl |  $
+C$:\Users\DELL\Desktop\Embedded_Project\calculator.c
+  flags = -out=C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.pbi -f C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.xcl
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.pbi : INDEXER C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.xcl |  $
+C$:\Users\DELL\Desktop\Embedded_Project\delay.c
+  flags = -out=C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.pbi -f C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.xcl
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.pbi : INDEXER C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.xcl |  $
+C$:\Users\DELL\Desktop\Embedded_Project\GPIO.c
+  flags = -out=C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.pbi -f C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.xcl
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.pbi : INDEXER C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.xcl |  $
+C$:\Users\DELL\Desktop\Embedded_Project\keypad.c
+  flags = -out=C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.pbi -f C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.xcl
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.pbi : INDEXER C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.xcl |  $
+C$:\Users\DELL\Desktop\Embedded_Project\LCD_Driver.c
+  flags = -out=C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.pbi -f C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.xcl
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.pbi : INDEXER C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.xcl |  $
+C$:\Users\DELL\Desktop\Embedded_Project\main.c
+  flags = -out=C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.pbi -f C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.xcl
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.xcl |  $
+C$:\Users\DELL\Desktop\Embedded_Project\startup_ewarm.c
+  flags = -out=C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.pbi -f C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.xcl
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.pbi : INDEXER C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.xcl |  $
+C$:\Users\DELL\Desktop\Embedded_Project\Stopwatch.c
+  flags = -out=C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.pbi -f C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.xcl
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.pbi : INDEXER C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.xcl |  $
+C$:\Users\DELL\Desktop\Embedded_Project\timer.c
+  flags = -out=C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.pbi -f C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.xcl
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.pbi : INDEXER C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.xcl |  $
+C$:\Users\DELL\Desktop\Embedded_Project\TIMER_PROJECT.c
+  flags = -out=C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.pbi -f C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.xcl
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project.pbw : MAKEBROWSE C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project.pbd
+  flags = C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project.pbd -output C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project.pbw
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part0.pbi : PDBLINK C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.pbi |  $
+C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.pbi $
+C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.pbi
+  flags = -M C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part0.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\calculator.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\delay.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\GPIO.pbi
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part1.pbi : PDBLINK C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.pbi |  $
+C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.pbi $
+C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.pbi
+  flags = -M C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part1.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\keypad.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\LCD_Driver.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\main.pbi
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part2.pbi : PDBLINK C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.pbi |  $
+C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.pbi $
+C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.pbi
+  flags = -M C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part2.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\startup_ewarm.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Stopwatch.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\timer.pbi
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part3.pbi : PDBLINK C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.pbi
+  flags = -M C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part3.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\TIMER_PROJECT.pbi
+
+build C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project.pbd : PDBLINK C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part0.pbi |  $
+C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part1.pbi $
+C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part2.pbi $
+C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part3.pbi
+  flags = -M C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project.pbd C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part0.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part1.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part2.pbi C$:\Users\DELL\Desktop\Embedded_Project\Debug\BrowseInfo\Project_part3.pbi
+
