@@ -1,0 +1,15 @@
+"D:\IAR EW for Arm 9.30.1\arm\bin\armPROC.dll" 
+
+"D:\IAR EW for Arm 9.30.1\arm\bin\armLMIFTDI.dll" 
+
+"C:\Users\DELL\Desktop\Embedded_Project\Debug\Exe\Project.out" 
+
+--plugin="D:\IAR EW for Arm 9.30.1\arm\bin\armbat.dll" 
+
+--device_macro="D:\IAR EW for Arm 9.30.1\arm/config/debugger/TexasInstruments/TM4C123.dmac" 
+
+--flash_loader="D:\IAR EW for Arm 9.30.1\arm/config/flashloader/TexasInstruments/FlashTC4_H6_o.board" 
+
+
+
+
